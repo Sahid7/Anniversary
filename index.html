@@ -336,6 +336,87 @@ footer {
         font-size: 26px;
     }
 }
+
+.surprise {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 105, 180, 0.92);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeIn 0.5s ease;
+}
+
+.surprise.show {
+    display: flex;
+}
+
+.surprise-box {
+    background: white;
+    padding: 45px 30px;
+    border-radius: 30px;
+    text-align: center;
+    max-width: 500px;
+    width: 85%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    animation: popIn 0.7s ease;
+}
+
+.big-heart {
+    font-size: 70px;
+    animation: heartbeat 1s infinite;
+}
+
+.surprise-box h2 {
+    color: #e91e63;
+    font-size: 30px;
+    margin: 20px 0 15px;
+}
+
+.surprise-box p {
+    color: #555;
+    font-size: 18px;
+}
+
+.surprise-box .small-love {
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.surprise-box button {
+    margin-top: 20px;
+    background: #e91e63;
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+    
 </style>
 </head>
 
@@ -564,20 +645,17 @@ footer {
 
             </div>
 
-            <button
-                class="button"
-                onclick="sayYes()">
+        <button class="yes-btn" onclick="sayYes()">YES, obviously! 💗</button>
 
-                YES, obviously! 💗
-
-            </button>
-
-            <p id="answer"></p>
-
-        </div>
-
+<div id="surprise" class="surprise">
+    <div class="surprise-box">
+        <div class="big-heart">❤️</div>
+        <h2>I KNEW YOU'D SAY YES! 😭💕</h2>
+        <p>13th September is officially our date. 🥂</p>
+        <p class="small-love">Just you, me, good food, and a whole lot of love. 💗</p>
+        <button onclick="closeSurprise()">I LOVE YOU ❤️</button>
     </div>
-
+</div>
 </section>
 
 <!-- FOOTER -->
